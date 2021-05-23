@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Hello Electron React!</title>
+    <link rel="stylesheet" href="./App.global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap" rel="stylesheet">
     <script>
       (() => {
         if (process?.env?.NODE_ENV !== 'development') {
@@ -13,6 +15,7 @@
           document.getElementsByTagName('head')[0].appendChild(link);
         }
       })();
+
     </script>
   </head>
   <body>
@@ -39,6 +42,7 @@
             .join('')
         );
       }
+      
     </script>
   </body>
 </html>

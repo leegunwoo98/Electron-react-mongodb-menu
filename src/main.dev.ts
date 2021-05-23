@@ -11,7 +11,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import path from 'path';
-import { app, BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, shell, screen } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -67,10 +67,12 @@ const createWindow = async () => {
     return path.join(RESOURCES_PATH, ...paths);
   };
 
+  const displays = screen.getAllDisplays()
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    x:displays[0].bounds.x,
+    y:displays[0].bounds.y,
+    "fullscreen": true,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       nodeIntegration: true,
